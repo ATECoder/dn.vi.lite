@@ -1,0 +1,3 @@
+RemoteRepoName,LocalRepoName,RemoteRepoURL,TargetDirectory
+vs.ide,ide,https://git@bitbucket.org/davidhary/vs.ide.git,libraries\vs\core
+dn.vi.lite,lite,https://github.com/ATECoder/dn.vi.lite.git,lib\vs\vi
