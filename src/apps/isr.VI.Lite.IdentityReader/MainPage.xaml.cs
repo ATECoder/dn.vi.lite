@@ -1,3 +1,4 @@
+
 namespace isr.VI.Lite.IdentityReader;
 
 public partial class MainPage : ContentPage
@@ -19,63 +20,23 @@ public partial class MainPage : ContentPage
         string ipAddress = "192.168.0.154";
         string portNumber = "5025";
 
-        this.WelcomeLabel.Text = $"{this._count} sending device query sync: {command}";
-        string response = QueryDevice( ipAddress, portNumber, command );
-        this.WelcomeLabel.Text = $"{this._count} sync: {response}";
-
-        this.WelcomeLabel.Text = $"{this._count} sending device query async: {command}";
-        response = QueryDeviceAsync( ipAddress, portNumber, command );
-        this.WelcomeLabel.Text = $"{this._count} async {response}";
-
-        // this does no work at this time.
-#if false
-
+        System.Text.StringBuilder builder = new();
         var session = new Session( ipAddress, int.Parse( portNumber ) );
+        string response = QueryDevice( session, command );
+        _ = builder.Append( $"{this._count}.a: {(string.IsNullOrEmpty( response ) ? "\n" : response)}" );
 
-        this.WelcomeLabel.Text = $"{this._count} sending device query sync: {command}";
+        System.Threading.Thread.Sleep( 10 );
+        session = new Session( ipAddress, int.Parse( portNumber ) );
         response = QueryDevice( session, command );
-        this.WelcomeLabel.Text = $"{this._count} sync: {response}";
+        _ = builder.Append( $"{this._count}.b: {(string.IsNullOrEmpty( response ) ? "\n" : response)}" );
 
-        this.WelcomeLabel.Text = $"{this._count} sending device query async: {command}";
-        response = QueryDeviceAsync( session, command );
-        this.WelcomeLabel.Text = $"{this._count} async {response}";
-#endif
+        System.Threading.Thread.Sleep( 10 );
+        response = QueryDevice( session, command );
+        _ = builder.Append( $"{this._count}.c: {(string.IsNullOrEmpty( response ) ? "\n" : response)}" );
+        this.WelcomeLabel.Text = builder.ToString();
 
         SemanticScreenReader.Announce( this.CounterBtn.Text);
 	}
-
-
-    private static string QueryDevice( string ipAddress, string portNumber, string command )
-    {
-        try
-        {
-            var session = new Session( ipAddress, int.Parse( portNumber ) );
-            var response = session.Query( command );
-            return response;
-        }
-        catch ( ApplicationException ex )
-        {
-            Console.WriteLine( ex.ToString() );
-        }
-        return "Exception occurred";
-    }
-
-    private static string QueryDeviceAsync( string ipAddress, string portNumber, string command )
-    {
-        try
-        {
-            var session = new Session( ipAddress, int.Parse( portNumber ) );
-            var response = session.QueryAsync( command ).Result;
-            return response;
-        }
-        catch ( ApplicationException ex )
-        {
-            Console.WriteLine( ex.ToString() );
-        }
-        return "Exception occurred";
-    }
-
-#if false
 
     private static string QueryDevice( Session session, string command )
     {
@@ -104,8 +65,6 @@ public partial class MainPage : ContentPage
         }
         return "Exception occurred";
     }
-
-#endif
 
 }
 

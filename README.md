@@ -6,9 +6,8 @@ TCP Socket-based control and communication library for LXI-based instruments.
 
 - [Objectives](#Objectives)
 - [Issues](#Issues)
-  - [Establishing robust socket communication](#Establishing-robust-socket-communication) 
-  - [Read after write delay](#Read-after-write-delay) 
-  - [timeouts](#Timeouts) 
+  - [Read fails](#Read-fails) 
+  - [Additional exploration](#Additional-exploration)
 - [Status](#Status) 
 - [Work plan](#work-plan)
 - [Supported .Net Releases](#Supported-.Net-Releases)
@@ -37,52 +36,39 @@ This, I hope, will evolve to implementing VXI-11 and HiSlip protocols hopefully 
 
 Presently I am working on a proof of concept.
 
-The proof-of-concept implementation defines a session class which owns an instance of a System.Net.Sockets.Socket. Pressing the 'Click Me', sends an IDN? query to the instrument and reads the instrument response using asynchronous socket methods. 
+The proof-of-concept implementation defines a session class which owns an instance of a System.Net.Sockets.TcpClient and uses a NetworkStream instance to communicate with the instrument asynchronously. 
+
+Pressing the 'Click Me', sends an IDN? query to the instrument and reads the instrument response using asynchronous socket methods. 
 
 <a name="Issues"></a>
 ## Issues
 
-### Establishing robust socket communication
+The following issues have been observed thus far:
 
-Two alternative queries were attempted:
+### Read fails
 
-1) Instantiate a new session and a new socket connection with each query.
-2) Instantiate a single session once for all subsequent queries;
+Initially, the socket send and receive commands were used. This worked as long as a new session was instantiated for each query and the socket was closed after each read.
 
-Observations and Predicaments:
+With the current, network stream, the instrument occasionally fails to send the response.
 
-* Using the first method works provided that the socket is disconnected after each read.
-* The second method fails in two ways:
-  * If the socket is disconnected after the first query, a socket exception occurs on the second query indicating that a connection cannot be established with the server (the instrument) using the same socket after the socket is disconnected;
-  * Reading from the instrument times out on the second query if the socket is not disconnected after the first query.
+Temporary solution:
+Adding a 10 delay between queries seems to address these failures.
 
-Interpretation:
+Obviously, this is a kludge.
 
-It seems that socket communication with the instrument has the following requirements:
-* The socket must be disconnected after each call;
-* A new socket must be instantiated following each read.
+### Additional exploration
 
-Next course of action:
-
-A possible solution for using a single session for multiple queries might dictate having the session own a TCP Client class, which will own the socket, and will be re-instantiated after each read. 
-
-### Read after write delay
-
-The socket receive often timed out initially. To address this, I added a delay time between the write and read methods. A time delay over 1 ms (currently set at 5ms) was required to get a stable query. 
-
-An obvious workaround might involve either querying the socket for available data hopping this won't break socket communication. 
-
-### Timeouts
-
-Timeout management needs to be added to all calls.
+* test with the 7510 and 2450;
+* alter the delays with these two instruments;
+* document how consistent the results are.
 
 ## Work plan
 
-* Proof of concept: implement a .NET MAUI *IDN app
+* Proof of concept: implement a .NET MAUI *IDN?
 * Minimal VI Lite message based socket session:
 	* Define the minimal interface
 	* Implement and test the minimal interface.
-	* Implement a .NET MAUI Lite app.
+	* Implement a .NET MAUI Lite application.
 * Add device clear.
 
 <a name="Supported-.Net-Releases"></a>
