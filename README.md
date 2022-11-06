@@ -1,5 +1,7 @@
 # VI Lite
 
+![IDNQueryOnAndroidEmulator](https://user-images.githubusercontent.com/791370/200157385-80713165-cb2a-4223-9894-44ccf09f420b.png)
+
 TCP Socket-based control and communication library for LXI-based instruments. 
 
 # *** WARNING: Work in progress ***
