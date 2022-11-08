@@ -60,9 +60,16 @@ Obviously, this is a kludge.
 
 ### Additional exploration
 
-* test with the 7510 and 2450;
-* alter the delays with these two instruments;
-* document how consistent the results are.
+#### Test results for read after write and inter-query delays
+
+|Instrument | Read after Write Delay [ms] | Inter-query Delay [ms]
+|-----------|:-------------:|:------------:
+|2450 |2  |0
+|2600 |2  |0
+|6510 |2  |1
+|7510 |2  |1
+
+Table 1. Delay times are required between the write and read commands of the same queries (Read After Write Delay) and between the read and the next write command of two sequential queries to accomplish error free readings. The delays listed in this table were determined for 40 error free queries initiated by button clicks. Missing responses were observed when reducing the delays by 1 ms.
 
 ## Work plan
 

@@ -89,7 +89,6 @@ public class Session : IDisposable
     /// <value> The write timeout. </value>
     public TimeSpan WriteTimeout { get; set; } = TimeSpan.FromSeconds( 1 );
 
-
     /// <summary>   Gets or sets the read after write delay. </summary>
     /// <value> The read after write delay. </value>
     public TimeSpan ReadAfterWriteDelay { get; set; } = TimeSpan.FromSeconds( 0.005 );
@@ -276,6 +275,7 @@ public class Session : IDisposable
                 ex.Data.Add( "IPEndPoint", this.IPEndPoint.ToString() );
                 throw ex;
             }
+            this.Client.NoDelay = false;
             this.Client.ReceiveTimeout = ( int ) this.ReadTimeout.TotalMilliseconds;
             this.Client.SendTimeout = ( int ) this.WriteTimeout.TotalMilliseconds;
             return this.Client;
