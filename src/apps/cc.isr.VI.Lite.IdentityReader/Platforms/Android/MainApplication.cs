@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace isr.VI.Lite.IdentityReader;
+namespace cc.isr.VI.Lite.IdentityReader;
 
 [Application]
 public class MainApplication : MauiApplication

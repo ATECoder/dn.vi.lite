@@ -1,4 +1,4 @@
-﻿namespace isr.VI.Lite.IdentityReader;
+﻿namespace cc.isr.VI.Lite.IdentityReader;
 
 public partial class App : Application
 {

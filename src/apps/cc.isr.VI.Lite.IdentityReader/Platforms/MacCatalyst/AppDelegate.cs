@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace isr.VI.Lite.IdentityReader;
+namespace cc.isr.VI.Lite.IdentityReader;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

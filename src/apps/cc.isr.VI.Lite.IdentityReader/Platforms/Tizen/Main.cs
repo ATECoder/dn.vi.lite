@@ -2,7 +2,7 @@ using System;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 
-namespace isr.VI.Lite.IdentityReader;
+namespace cc.isr.VI.Lite.IdentityReader;
 
 class Program : MauiApplication
 {

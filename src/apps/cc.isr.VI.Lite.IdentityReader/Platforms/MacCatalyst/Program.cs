@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace isr.VI.Lite.IdentityReader;
+namespace cc.isr.VI.Lite.IdentityReader;
 
 public class Program
 {

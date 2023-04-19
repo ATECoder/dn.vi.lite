@@ -6,7 +6,7 @@ using Microsoft.Maui.Controls;
 using System;
 using System.Runtime.CompilerServices;
 
-namespace isr.VI.Lite.IdentityReader;
+namespace cc.isr.VI.Lite.IdentityReader;
 
 /// <summary>   A <see cref="System.Net.Sockets.Socket"/> session. </summary>
 /// <remarks>   2022-11-04. </remarks>
