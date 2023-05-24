@@ -23,7 +23,7 @@ public class Session : IDisposable
     }
 
 
-    #region " IDisposable Support "
+    #region " idisposable support "
 
     /// <summary> Gets a value indicating whether this instance is disposed. </summary>
     /// <value> <c>True</c> if this instance is disposed; otherwise, <c>False</c>. </value>
@@ -242,7 +242,7 @@ public class Session : IDisposable
         return pingable;
     }
 
-    #region " TCP Client Implementation "
+    #region " tcp client implementation "
 
     private TcpClient _client = null;
 
