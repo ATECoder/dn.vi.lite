@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="isr.VI.Lite.IdentityReader.AppShell"
+    x:Class="cc.isr.VI.Lite.IdentityReader.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:isr.VI.Lite.IdentityReader"
+    xmlns:local="clr-namespace:cc.isr.VI.Lite.IdentityReader"
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
