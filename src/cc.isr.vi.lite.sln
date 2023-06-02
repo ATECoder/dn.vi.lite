@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cc.isr.VI.Lite.IdentityReader", "apps\cc.isr.VI.Lite.IdentityReader\cc.isr.VI.Lite.IdentityReader.csproj", "{6D1EE752-F997-4110-A0C7-E8C79B982272}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "~items", "~items", "{DB63CE2B-EBB4-4E6B-B896-6CD18166F893}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "`build", "`build", "{DB63CE2B-EBB4-4E6B-B896-6CD18166F893}"
 	ProjectSection(SolutionItems) = preProject
 		..\CHANGELOG.md = ..\CHANGELOG.md
 		isr.vi.lite.sln.vsspell = cc.isr.vi.lite.sln.vsspell
