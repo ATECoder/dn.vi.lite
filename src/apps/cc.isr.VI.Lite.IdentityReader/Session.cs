@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 
 namespace cc.isr.VI.Lite.IdentityReader;
 
-/// <summary>   A <see cref="System.Net.Sockets.Socket"/> session. </summary>
+/// <summary>   A <see cref="Net.Sockets.Socket"/> session. </summary>
 /// <remarks>   2022-11-04. </remarks>
 public class Session : IDisposable
 {
@@ -26,12 +26,12 @@ public class Session : IDisposable
     #region " idisposable support "
 
     /// <summary> Gets a value indicating whether this instance is disposed. </summary>
-    /// <value> <c>True</c> if this instance is disposed; otherwise, <c>False</c>. </value>
+    /// <value> <c>true</c> if this instance is disposed; otherwise, <c>false</c>. </value>
     protected bool IsDisposed { get; set; }
 
     /// <summary> Releases unmanaged and - optionally - managed resources. </summary>
-    /// <param name="disposing"> <c>True</c> to release both managed and unmanaged resources;
-    /// <c>False</c> to release only unmanaged resources. </param>
+    /// <param name="disposing"> <c>true</c> to release both managed and unmanaged resources;
+    /// <c>false</c> to release only unmanaged resources. </param>
     protected virtual void Dispose( bool disposing )
     {
         if ( this.IsDisposed ) return;
@@ -173,7 +173,7 @@ public class Session : IDisposable
     /// <summary>   Sends a query command and reads the response. </summary>
     /// <remarks>   2022-11-04. </remarks>
     /// <param name="command">  The command. </param>
-    /// <returns>   A string. </returns>
+    /// <returns>   A <see cref="string" />. </returns>
     public string Query( string command )
     {
         return this.SendReceiveAsync( command, this.CancellationToken ).Result;
@@ -246,7 +246,7 @@ public class Session : IDisposable
 
     private TcpClient _client = null;
 
-    /// <summary>   Gets or sets the <see cref="System.Net.Sockets.Socket"/> client. </summary>
+    /// <summary>   Gets or sets the <see cref="Net.Sockets.Socket"/> client. </summary>
     /// <value> The client. </value>
     public TcpClient Client
     {
@@ -346,7 +346,7 @@ public class Session : IDisposable
         using TcpClient client = this.ConnectedClient;
         using NetworkStream stream = client.GetStream();
 
-        if ( !await HasReadingAsync( stream, this.ReadAfterWriteDelay ) ) return String.Empty;
+        if ( !await HasReadingAsync( stream, this.ReadAfterWriteDelay ) ) return string.Empty;
 
         var buffer = new byte[this.ReadingBufferSize];
         int bytesAvailable = await stream.ReadAsync( buffer.AsMemory( 0, this.ReadingBufferSize ), ct );
@@ -359,7 +359,7 @@ public class Session : IDisposable
         using TcpClient client = this.ConnectedClient;
         using NetworkStream stream = client.GetStream();
 
-        if ( !await HasReadingAsync( stream, this.ReadAfterWriteDelay ) ) return String.Empty;
+        if ( !await HasReadingAsync( stream, this.ReadAfterWriteDelay ) ) return string.Empty;
 
         var buffer = new byte[this.ReadingBufferSize];
         int bytesAvailable = await stream.ReadAsync( buffer.AsMemory( 0, this.ReadingBufferSize ), ct );
@@ -384,7 +384,7 @@ public class Session : IDisposable
         await stream.WriteAsync( userMessage, ct );
         stream.Flush();
 
-        if ( !await HasReadingAsync( stream, this.ReadAfterWriteDelay ) ) return String.Empty;
+        if ( !await HasReadingAsync( stream, this.ReadAfterWriteDelay ) ) return string.Empty;
 
         var buffer = new byte[this.ReadingBufferSize];
         int bytesAvailable = await stream.ReadAsync( buffer.AsMemory( 0, this.ReadingBufferSize ), ct );
@@ -396,7 +396,7 @@ public class Session : IDisposable
     /// <remarks>   2022-11-05. </remarks>
     /// <param name="message">  The message. </param>
     /// <param name="ct">       A token that allows processing to be cancelled. </param>
-    /// <returns>   A string. </returns>
+    /// <returns>   A <see cref="string" />. </returns>
     public async Task<string> SendReceiveAsyncTrimEnd( string message, CancellationToken ct )
     {
         if ( string.IsNullOrEmpty( message ) ) return string.Empty;
@@ -414,7 +414,7 @@ public class Session : IDisposable
         await stream.WriteAsync( userMessage, ct );
         stream.Flush();
 
-        if ( !await HasReadingAsync( stream, this.ReadAfterWriteDelay ) ) return String.Empty;
+        if ( !await HasReadingAsync( stream, this.ReadAfterWriteDelay ) ) return string.Empty;
 
         var buffer = new byte[this.ReadingBufferSize];
         int bytesAvailable = await stream.ReadAsync( buffer.AsMemory( 0, this.ReadingBufferSize ), ct );
