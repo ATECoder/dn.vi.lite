@@ -445,5 +445,4 @@ public class Session : IDisposable
     }
 
     #endregion
-
 }
