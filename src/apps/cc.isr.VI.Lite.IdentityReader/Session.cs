@@ -233,7 +233,7 @@ public class Session : IDisposable
         }
         finally
         {
-            if ( pinger != null )
+            if ( pinger is not null )
             {
                 pinger.Dispose();
             }
