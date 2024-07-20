@@ -215,7 +215,7 @@ public class Session : IDisposable
     /// <summary>   Ping host. </summary>
     /// <remarks>   2022-11-04. </remarks>
     /// <param name="nameOrAddress">    The name or address. </param>
-    /// <returns>   True if it succeeds, false if it fails. </returns>
+    /// <returns>   True if it succeeds; otherwise, false. </returns>
     public static bool PingHost( string nameOrAddress )
     {
         bool pingable = false;
