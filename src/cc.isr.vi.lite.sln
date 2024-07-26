@@ -8,12 +8,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "`build", "`build", "{DB63CE2B-EBB4-4E6B-B896-6CD18166F893}"
 	ProjectSection(SolutionItems) = preProject
 		..\CHANGELOG.md = ..\CHANGELOG.md
-		isr.vi.lite.sln.vsspell = cc.isr.vi.lite.sln.vsspell
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
