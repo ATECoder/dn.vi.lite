@@ -102,6 +102,7 @@ public class Session : IDisposable
     public int PortNumber { get; private set; }
 
     private IPEndPoint _ipEndPoint = null;
+
     /// <summary>   Gets or sets the IP end point. </summary>
     /// <value> The IP end point. </value>
     public IPEndPoint IPEndPoint
@@ -121,7 +122,6 @@ public class Session : IDisposable
     {
         return this.WriteLineAsync( command ).Result;
     }
-
 
     /// <summary>   Gets the cancellation token. </summary>
     /// <value> The cancellation token. </value>
