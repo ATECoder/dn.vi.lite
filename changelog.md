@@ -18,4 +18,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 &copy;  2022 Integrated Scientific Resources, Inc. All rights reserved.
 
-[0.1.8518]: https://github.com/ATECoder/dn.vi.lite
+[0.1.8518]: https://github.com/atecoder/dn.vi.lite

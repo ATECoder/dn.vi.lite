@@ -15,7 +15,7 @@ The repositories listed in [external repositories] are required:
 
 ```
 git clone git@bitbucket.org:davidhary/vs.ide.git
-git clone https://github.com/ATECoder/dn.vi.lite.git
+git clone https://github.com/atecoder/dn.vi.lite.git
 ```
 
 Clone the repositories into the following folders (parents of the .git folder):
