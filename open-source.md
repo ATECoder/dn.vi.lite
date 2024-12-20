@@ -1,4 +1,4 @@
-### Open Source
+# Open Source
 
 TCP Socket-based control and communication library for LXI-based instruments. 
 
@@ -6,12 +6,12 @@ TCP Socket-based control and communication library for LXI-based instruments.
 * [Closed Software](#Closed-software)
 
 <a name="Open-Source"></a>
-#### Open source
+## Open source
 Open source used by this software is described and licensed at the
 following sites:  
 
 <a name="Closed-software"></a>
-#### Closed software
+## Closed software
 Closed software used by this software are described and licensed on
 the following sites:  
 [IVI Foundation]  
@@ -19,7 +19,7 @@ the following sites:
 [Keysight I/O Suite]  
 
 <a name="Resources"></a>
-#### Resources 
+## Resources 
 
 [Use sockets to send and receive data over TCP]
 
