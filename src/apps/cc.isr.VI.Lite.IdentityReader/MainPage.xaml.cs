@@ -5,16 +5,16 @@ public partial class MainPage : ContentPage
 {
     private int _count;
 
-	public MainPage()
-	{
+    public MainPage()
+    {
         this.InitializeComponent();
-	}
+    }
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
+    private void OnCounterClicked(object sender, EventArgs e)
+    {
         this._count++;
 
-		this.CounterBtn.Text = this._count == 1 ? $"Clicked {this._count} time" : $"Clicked {this._count} times";
+        this.CounterBtn.Text = this._count == 1 ? $"Clicked {this._count} time" : $"Clicked {this._count} times";
 
         string command = "*IDN?";
         string portNumber = "5025";
@@ -49,7 +49,7 @@ public partial class MainPage : ContentPage
         this.WelcomeLabel.Text = builder.ToString();
 
         SemanticScreenReader.Announce( this.CounterBtn.Text);
-	}
+    }
 
     private static string QueryDevice( Session session, string command )
     {
