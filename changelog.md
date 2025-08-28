@@ -2,9 +2,17 @@
 Notable changes to this solution are documented in this file using the 
 [Keep a Changelog] style. The dates specified are in coordinated universal time (UTC).
 
-[0.1.8518]: https://github.com/atecoder/dn.vi.lite
+[0.1.9371]: https://github.com/atecoder/dn.vi.lite
 
-## [1.1.8535] - 2023-05-15 Preview 202304
+## [0.1.9371] - 2025-08-28
+- Update MSTest SDK to 3.10.3
+- Use preview in net standard classes.
+- use isr.cc as company name in the Serilog settings generator.
+- Turn off source version in MS Test, Demo and Console projects.
+- Remove incorrect Generate Assembly Version Attribute project settings.
+- Use file version rather than product version when building the Product folder name because starting with .NET 8 the product version includes the source code commit information, which is not necessary for defining the product folder for settings and logging.
+
+## [0.1.8535] - 2023-05-15 Preview 202304
 * Use cc.isr.Json.AppSettings.ViewModels project for settings I/O.
 
 ## [0.1.8518] - 2023-04-28 Preview 202304
